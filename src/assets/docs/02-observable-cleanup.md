@@ -8,16 +8,16 @@ del 1 al 10 esperando un segundo entre emisión.
 Para esto, podemos usar `setInterval`:
 
 ```typescript
-import { Observable, Observer } from 'rxjs'
+import { Observable, Observer } from 'rxjs';
 
 const observer: Observer = {
   next(val: number) {
-    console.log('Next value:', val)
+    console.log('Next value:', val);
   },
   complete(): void {
-    console.log('Completed')
+    console.log('Completed');
   }
-}
+};
 
 const obs$ = new Observable<number>((sub: Subscripter<number>) => {
   let n = 1;
@@ -25,12 +25,12 @@ const obs$ = new Observable<number>((sub: Subscripter<number>) => {
     if (n <= 10) {
       sub.next(n++);
     } else {
-      sub.complete()
+      sub.complete();
     }
   }, 1000);
 });
 
-obs$.subscribe(console.log)
+obs$.subscribe(console.log);
 ```
 
 Si ahora ejecutamos el código, veremos la siguiente salida:
@@ -62,11 +62,11 @@ const obs$ = new Observable<number>((sub: Subscripter<number>) => {
     if (n <= 10) {
       sub.next(n++);
     } else {
-      sub.complete()
+      sub.complete();
     }
   }, 1000);
   +return () => {
-  +  clearInterval(intid)
+  +  clearInterval(intid);
   +}
 });
 ```
