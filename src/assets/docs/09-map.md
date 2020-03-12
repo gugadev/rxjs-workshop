@@ -3,7 +3,7 @@
 Map es un operador de transformación que nos recibe un dato y puede devolver otro, dando así pie a la transformación de dicho dato. Veamos un ejemplo:
 
 ```typescript
-import { of } from 'rxjs';
+import { Observer, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 const obs: Observer<number> = {
@@ -18,8 +18,7 @@ const obs: Observer<number> = {
 of(1, 2, 3, 4, 5)
   .pipe(
     map(n => n * 2)
-  )
-).subscribe(console.log);
+  ).subscribe(obs);
 ```
 
 El `map` que hemos colocado, recibirá cada una de las emisiones y las multiplicará por 2. El resultado de esta subscripción entonces será:
