@@ -1,11 +1,11 @@
-## Subject
+## Observable cleanup
 
 Tomando el código anterior, podríamos decir que todo está bien. Nos desubscribimos de ambas subscriones y ponemos nuestra _cleaner function_ que limpie el interval. Pero, ¿en realidad sucede así?
 
 Ejecutemos el código anterior, pero añadiendo un log en el `clearInterval`; de esta manera sabremos si se ha ejecutado.
 
 ```typescript
-import { Observable, Observer, Subscriber, Subject } from 'rxjs'
+import { Observable, Subscriber, Subject } from 'rxjs'
 
 const obs$ = new Observable<number>((sub: Subscriber<number>) => {
   const intid = setInterval(() => {
